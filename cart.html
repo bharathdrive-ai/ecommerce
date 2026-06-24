@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart — Artisan & Co.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Artisan <span>&</span> Co.</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="shop.html" class="nav-link">Shop</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li>
+          <a href="cart.html" class="nav-link nav-cart">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            Cart
+            <span class="cart-badge" id="cart-badge">0</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Your Cart</h1>
+      <p id="cart-header-count">Loading…</p>
+    </div>
+  </div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="cart-layout" id="cart-layout"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© 2026 Artisan & Co. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    <span id="toast-msg"></span>
+  </div>
+
+  <script src="products.js"></script>
+  <script src="cart.js"></script>
+  <script src="nav.js"></script>
+  <script>
+    const SHIPPING = 420;
+
+    function showToast(msg) {
+      const t = document.getElementById("toast");
+      document.getElementById("toast-msg").textContent = msg;
+      t.classList.add("show");
+      setTimeout(() => t.classList.remove("show"), 3000);
+    }
+
+    function renderCart() {
+      const cart = getCart();
+      const layout = document.getElementById("cart-layout");
+      const headerCount = document.getElementById("cart-header-count");
+
+      if (cart.length === 0) {
+        headerCount.textContent = "Your cart is empty";
+        layout.innerHTML = `
+          <div class="empty-cart">
+            <div style="font-size:4rem;margin-bottom:16px;">🛒</div>
+            <h2>Nothing here yet</h2>
+            <p>Add some handcrafted goods to get started.</p>
+            <a href="shop.html" class="btn btn-primary">Continue Shopping</a>
+          </div>`;
+        return;
+      }
+
+      const totalItems = cart.reduce((s, i) => s + i.quantity, 0);
+      headerCount.textContent = `${totalItems} item${totalItems !== 1 ? "s" : ""} in your cart`;
+
+      const subtotal = cart.reduce((sum, item) => {
+        const p = products.find(p => p.id === item.id);
+        return sum + (p ? p.price * item.quantity : 0);
+      }, 0);
+      const total = subtotal + SHIPPING;
+
+      const itemsHtml = cart.map(item => {
+        const p = products.find(p => p.id === item.id);
+        if (!p) return "";
+        return `
+          <div class="cart-item" id="item-${p.id}">
+            <div class="cart-item-image" style="background:${p.color}">${p.name[0]}</div>
+            <div class="cart-item-info">
+              <a href="product.html?id=${p.id}"><div class="cart-item-name">${p.name}</div></a>
+              <div class="cart-item-artisan">by ${p.artisan}</div>
+              <div style="font-size:0.8rem;color:var(--color-sage);text-transform:uppercase;letter-spacing:0.06em;margin-top:2px">${p.category}</div>
+            </div>
+            <div class="cart-item-controls">
+              <div class="cart-item-price">₹${(p.price * item.quantity).toFixed(2)}</div>
+              <div class="qty-controls" style="transform:scale(0.9);transform-origin:right center">
+                <button class="qty-btn" onclick="handleQtyChange(${p.id}, -1)">−</button>
+                <div class="qty-display" style="display:flex;align-items:center;justify-content:center">${item.quantity}</div>
+                <button class="qty-btn" onclick="handleQtyChange(${p.id}, 1)">+</button>
+              </div>
+              <button class="remove-btn" onclick="handleRemove(${p.id})">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+                Remove
+              </button>
+            </div>
+          </div>`;
+      }).join("");
+
+      layout.innerHTML = `
+        <div>
+          <div style="border-top:1px solid var(--color-border);">${itemsHtml}</div>
+          <div style="margin-top:20px;">
+            <a href="shop.html" style="font-size:0.875rem;color:var(--color-text-muted);display:inline-flex;align-items:center;gap:6px;">← Continue Shopping</a>
+          </div>
+        </div>
+        <div>
+          <div class="order-summary">
+            <h3>Order Summary</h3>
+            <div class="summary-row"><span>Subtotal</span><span>₹${subtotal.toFixed(2)}</span></div>
+            <div class="summary-row"><span>Shipping</span><span>₹${SHIPPING.toFixed(2)}</span></div>
+            <div class="summary-row total"><span>Total</span><span>₹${total.toFixed(2)}</span></div>
+            <button class="btn btn-primary btn-full" style="margin-top:20px;" onclick="handleCheckout()">
+              Proceed to Checkout
+            </button>
+            <p style="font-size:0.75rem;color:var(--color-text-muted);text-align:center;margin-top:12px;">
+              Free returns · Secure checkout
+            </p>
+          </div>
+        </div>`;
+    }
+
+    function handleQtyChange(id, delta) {
+      updateQuantity(id, delta);
+      renderCart();
+    }
+
+    function handleRemove(id) {
+      removeFromCart(id);
+      renderCart();
+      showToast("Item removed from cart");
+    }
+
+    function handleCheckout() {
+      showToast("Order placed! Thank you for supporting artisans. 🎉");
+      setTimeout(() => {
+        clearCart();
+        renderCart();
+      }, 1200);
+    }
+
+    renderCart();
+  </script>
+</body>
+</html>

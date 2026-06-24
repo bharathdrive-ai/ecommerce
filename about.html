@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Artisan & Co.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Artisan <span>&</span> Co.</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="shop.html" class="nav-link">Shop</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li>
+          <a href="cart.html" class="nav-link nav-cart">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            Cart
+            <span class="cart-badge" id="cart-badge">0</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- BRAND STORY -->
+  <section class="section">
+    <div class="container">
+      <div class="about-hero">
+        <div>
+          <span class="hero-eyebrow">Our Story</span>
+          <h1 style="font-size:clamp(2rem,5vw,3.5rem);margin:16px 0 24px;">Craft is the<br>original innovation.</h1>
+          <p style="color:var(--color-text-muted);line-height:1.9;margin-bottom:20px;">
+            Artisan & Co. was born from a simple belief: the things we surround ourselves with should be made with care, not haste. In 2019, we started as a small collective of three friends who loved handmade goods but struggled to find a marketplace that celebrated the makers as much as the objects.
+          </p>
+          <p style="color:var(--color-text-muted);line-height:1.9;margin-bottom:20px;">
+            Today we partner with over 40 independent artisans across 18 countries, bringing their studio practices into homes around the world. Every piece you find here was made by a person, not a machine — shaped by years of craft knowledge and quiet dedication.
+          </p>
+          <p style="color:var(--color-text-muted);line-height:1.9;">
+            We believe in paying artisans fairly, in transparent supply chains, and in goods that last long enough to become heirlooms. When you buy from Artisan & Co., you are not just buying an object — you are sustaining a tradition.
+          </p>
+        </div>
+        <div class="about-hero-visual">🏺</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="section-sm" style="background:var(--color-bark);">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:40px;text-align:center;">
+        <div>
+          <div style="font-family:var(--font-display);font-size:3rem;color:var(--color-cream);font-weight:700;">40+</div>
+          <div style="color:rgba(240,234,214,0.65);font-size:0.875rem;margin-top:4px;">Partner Artisans</div>
+        </div>
+        <div>
+          <div style="font-family:var(--font-display);font-size:3rem;color:var(--color-cream);font-weight:700;">18</div>
+          <div style="color:rgba(240,234,214,0.65);font-size:0.875rem;margin-top:4px;">Countries</div>
+        </div>
+        <div>
+          <div style="font-family:var(--font-display);font-size:3rem;color:var(--color-cream);font-weight:700;">12k+</div>
+          <div style="color:rgba(240,234,214,0.65);font-size:0.875rem;margin-top:4px;">Happy Customers</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTISANS -->
+  <section class="section" style="background:var(--color-white);">
+    <div class="container">
+      <div class="section-header">
+        <h2>Meet the Makers</h2>
+        <p>Behind every piece is a person with a story. Here are three of our founding artisans.</p>
+      </div>
+      <div class="artisan-grid">
+        <div class="artisan-card">
+          <div class="artisan-avatar" style="background:var(--color-clay);">M</div>
+          <h3>Maria Santos</h3>
+          <div class="artisan-craft">Ceramics</div>
+          <p class="artisan-bio">Maria learned to throw pots from her grandmother in Oaxaca, Mexico. After studying ceramic arts in Mexico City, she returned to her village to establish her own studio. Her work blends pre-Columbian forms with contemporary minimalism.</p>
+        </div>
+        <div class="artisan-card">
+          <div class="artisan-avatar" style="background:var(--color-sage);">Y</div>
+          <h3>Yuki Tanaka</h3>
+          <div class="artisan-craft">Textiles</div>
+          <p class="artisan-bio">Yuki grew up watching her mother weave on a floor loom in Kyoto. She studied traditional dyeing techniques including shibori and katazome before establishing her own studio in Osaka, where she blends Japanese tradition with Scandinavian restraint.</p>
+        </div>
+        <div class="artisan-card">
+          <div class="artisan-avatar" style="background:var(--color-earth);">T</div>
+          <h3>Thomas Reed</h3>
+          <div class="artisan-craft">Woodwork</div>
+          <p class="artisan-bio">Thomas spent a decade as a furniture maker's apprentice in Vermont before opening his own shop. He works exclusively with locally-sourced and reclaimed timber, believing that the material should always dictate the form.</p>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:48px;">
+        <a href="shop.html" class="btn btn-secondary">Shop Their Work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Values</h2>
+        <p>The principles that guide every decision we make, from sourcing to shipping.</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">🌿</div>
+          <h3>Sustainability</h3>
+          <p>We work with artisans who use sustainably-sourced materials, natural dyes, and low-waste production methods. We offset all shipping emissions and use compostable packaging.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">✋</div>
+          <h3>Authenticity</h3>
+          <p>Every product on our platform is genuinely handmade. We visit each studio, verify each process, and tell the true story behind each piece — including its imperfections.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🤝</div>
+          <h3>Community</h3>
+          <p>Artisans receive 80% of every sale. We provide free photography, marketing support, and business mentorship to help independent makers build sustainable livelihoods.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section newsletter">
+    <div class="container" style="text-align:center;">
+      <h2>Ready to find something you'll love forever?</h2>
+      <p>Every piece is one-of-a-kind. Once it's gone, it's gone.</p>
+      <a href="shop.html" class="btn btn-primary btn-lg" style="margin-top:8px;">Browse the Collection</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">Artisan <span style="color:var(--color-clay)">&</span> Co.</a>
+          <p>A marketplace celebrating slow-made, thoughtful goods created by independent artisans worldwide.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="shop.html">All Products</a></li>
+            <li><a href="shop.html?category=ceramics">Ceramics</a></li>
+            <li><a href="shop.html?category=textiles">Textiles</a></li>
+            <li><a href="shop.html?category=woodwork">Woodwork</a></li>
+            <li><a href="shop.html?category=jewelry">Jewelry</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="about.html">Meet Artisans</a></li>
+            <li><a href="cart.html">Shopping Cart</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Artisan & Co. All rights reserved.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" aria-label="Pinterest">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.236 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.181-.78 1.172-4.97 1.172-4.97s-.299-.598-.299-1.482c0-1.388.806-2.428 1.808-2.428.853 0 1.267.641 1.267 1.408 0 .858-.546 2.140-.828 3.33-.236.995.499 1.806 1.476 1.806 1.772 0 3.135-1.867 3.135-4.561 0-2.385-1.715-4.053-4.163-4.053-2.836 0-4.498 2.126-4.498 4.325 0 .857.33 1.774.74 2.276a.297.297 0 0 1 .069.284c-.075.314-.243.995-.276 1.134-.044.183-.147.222-.338.134-1.249-.581-2.030-2.407-2.030-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.220-5.19 6.220-1.013 0-1.966-.527-2.292-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.937.29 1.931.446 2.962.446C17.523 22 22 17.523 22 12S17.523 2 12 2z"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="products.js"></script>
+  <script src="cart.js"></script>
+  <script src="nav.js"></script>
+</body>
+</html>
