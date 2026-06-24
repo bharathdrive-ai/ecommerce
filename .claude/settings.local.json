@@ -8,7 +8,8 @@
       "Bash(git push *)",
       "Bash(git commit -m ' *)",
       "Bash(gh pr *)",
-      "PowerShell(gh pr list --repo bharathdrive-ai/ecommerce --head master)"
+      "PowerShell(gh pr list --repo bharathdrive-ai/ecommerce --head master)",
+      "Bash(git commit *)"
     ]
   }
 }
