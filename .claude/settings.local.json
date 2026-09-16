@@ -9,7 +9,17 @@
       "Bash(git commit -m ' *)",
       "Bash(gh pr *)",
       "PowerShell(gh pr list --repo bharathdrive-ai/ecommerce --head master)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(gh repo *)",
+      "Bash(git ls-remote *)",
+      "Read(//c/Users/Admin/.claude/scheduled-tasks//**)",
+      "Read(//c/Users/Admin/.claude/scheduled-tasks/tn-news-daily//**)",
+      "Bash(ls \"/c/Users/Admin/OneDrive/Desktop/AI Learning/\" 2>&1)",
+      "Bash(mkdir -p \"/c/Users/Admin/OneDrive/Desktop/AI Learning/dailyAutoFeed/amazon-deals-daily\" \"/c/Users/Admin/OneDrive/Desktop/AI Learning/dailyAutoFeed/tn-news-daily\")",
+      "Bash(cp \"/c/Users/Admin/.claude/scheduled-tasks/amazon-deals-daily/SKILL.md\" \"/c/Users/Admin/OneDrive/Desktop/AI Learning/dailyAutoFeed/amazon-deals-daily/SKILL.md\")",
+      "Bash(cp \"/c/Users/Admin/.claude/scheduled-tasks/tn-news-daily/SKILL.md\" \"/c/Users/Admin/OneDrive/Desktop/AI Learning/dailyAutoFeed/tn-news-daily/SKILL.md\")",
+      "Bash(mkdir -p \"/c/Users/Admin/OneDrive/Desktop/AI Learning/dailyAutoFeed/tracked-feeds-page\")",
+      "Bash(cp \"/c/Users/Admin/AppData/Local/Temp/claude/C--Users-Admin-OneDrive-Desktop-AI-Learning-TestClaude/c0c78045-5bf4-40d5-b32f-af9801a0fe54/scratchpad/tracked-url.html\" \"/c/Users/Admin/OneDrive/Desktop/AI Learning/dailyAutoFeed/tracked-feeds-page/index.html\")"
     ]
   }
 }
